@@ -1,0 +1,86 @@
+.FCalendar {
+  .year-month {
+    border-bottom: 1px solid #ddd;
+    .year,
+    .month {
+      width: 48%;
+      line-height: .88rem;
+      font-size: .28rem;
+      text-align: center;
+      &:extend(.pr);
+      em {
+        &:extend(.pa);
+        top: 0;
+        width: .88rem;
+        height: .88rem;
+        &:extend(.jccaic);
+        &:after {
+          content: '\200B';
+          width: .48rem;
+          height: .48rem;
+        }
+        &.prev {
+          left: 0;
+          &:after {
+            background: transparent url('../image/prev_48x48.png') no-repeat 0 0;
+            background-size: 100% auto;
+          }
+        }
+        &.next {
+          right: 0;
+          &:after {
+            background: transparent url('../image/next_48x48.png') no-repeat 0 0;
+            background-size: 100% auto;
+          }
+        }
+      }
+    }
+  }
+  ul.day-th {
+    &:extend(.df);
+    text-align: center;
+    font-size: .28rem;
+    line-height: .8rem;
+    color: rgba(0, 0, 0, .5);
+    li {
+      flex: 1;
+      &:nth-child(1), &:nth-child(7) {
+        color: #1296db;
+      }
+    }
+  }
+  ul.date-td {
+    &:extend(.df);
+    text-align: center;
+    font-size: .28rem;
+    line-height: .8rem;
+    flex-wrap: wrap;
+    color: #ccc;
+    li {
+      width: 14.3%;
+      height: .8rem;
+      &.usable {
+        color: #333;
+      }
+      &.disabled {
+        color: #ccc!important;
+      }
+      &:nth-child(7n+0) {
+        width: 14.2%;
+        color: #1296db;
+      }
+      &:nth-child(7n+1) {
+        color: #1296db;
+      }
+      div {
+        max-width: .8rem;
+        margin: 0 auto;
+      }
+      &.checked div {
+        color: #fff;
+        background-color: #1296db;
+        border-radius: 100%;
+      }
+    }
+  }
+}

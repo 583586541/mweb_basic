@@ -1,0 +1,43 @@
+.FPrompt {
+  .popup-wrap {
+    bottom: auto;
+    top: 50%;
+    left: 15%;
+    right: 15%;
+    border-radius: .1rem;
+    margin-top: -1.38rem;
+  }
+  .popup-header {
+    border-bottom: none;
+  }
+  .popup-body {
+    &:extend(.jcc);
+    padding: 0 .24rem .28rem .24rem;
+    line-height: .8rem;
+    input[type=text] {
+      width: 3.4rem;
+      padding: .18rem .14rem;
+      border: 1px solid #ddd;
+      margin-right: .16rem;
+    }
+  }
+  .popup-footer {
+    &:extend(.df);
+    border-top: 1px solid #ddd;
+    height: .8rem;
+    border-radius: 0 0 .1rem .1rem;
+    overflow: hidden;
+    input[type=button] {
+      flex: 1;
+      line-height: .8rem;
+      background: #fff;
+      &:first-child {
+        color: #999;
+        border-right: 1px solid #ddd;
+      }
+      &:last-child {
+        color: #1296db;
+      }
+    }
+  }
+}

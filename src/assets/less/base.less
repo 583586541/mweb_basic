@@ -1,0 +1,253 @@
+/****** 常量 ******/
+@imgPath: '../image/'; // 图片地址前缀
+@componentsPath: '../../components/'; // 组件地址前缀
+
+/****** 重置 ******/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.5;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* v1.0 | 20180612
+   License: none (public domain)
+*/
+a {
+  text-decoration: none;
+}
+input {
+  border: none;
+  -webkit-appearance: none;
+  outline: none;
+  font-size: .28rem;
+  line-height: 1.5;
+}
+::-webkit-input-placeholder {
+  color: #aaa;
+}
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+}
+img {
+  display: block;
+  width: 100%;
+}
+* {
+  -webkit-tap-highlight-color:rgba(255 ,255, 255, 0)
+}
+
+/****** 继承 ******/
+.pr {
+  position: relative;
+}
+.pa {
+  position: absolute;
+}
+.pf {
+  position: fixed;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.db {
+  display: block;
+}
+.di {
+  display: inline;
+}
+.dib {
+  display: inline-block;
+}
+.dn {
+  display: none;
+}
+.df {
+  display: flex;
+}
+.jcc {
+  &:extend(.df);
+  justify-content: center;
+}
+.aic {
+  &:extend(.df);
+  align-items: center;
+}
+.jccaic {
+  &:extend(.df);
+  justify-content: center;
+  align-items: center;
+}
+.jcsb {
+  &:extend(.df);
+  justify-content: space-between;
+}
+.clearfix:after {
+  display: block;
+  content: '\200B';
+  height: 0;
+  clear: both;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cpu-3d {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/****** mixin ******/
+.background-image (@path) {
+  background: transparent url("@{imgPath}@{path}") no-repeat 0 0;
+  background-size: 100% auto;
+}
+
+/****** 大框架 ******/
+html, body, #app, .view-wrap {
+  height: 100%;
+}
+#app {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  .view-wrap {
+    &:extend(.pr);
+    background-color: #f6f6f6;
+    .view-body, .view-popup {
+      &:extend(.pa);
+      top: 1rem;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      &.view-body {
+        z-index: 1;
+      }
+      &.view-popup {
+        z-index: 999;
+      }
+    }
+  }
+  &.kill-header {
+    .FHeader {
+      display: none;
+    }
+    .view-body, .view-popup {
+      top: 0;
+    }
+  }
+}
+/****** VUE自带动画 ******/
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/****** 组件 ******/
+.weui-loading_toast {
+  &:extend(.pr);
+  z-index: 1000;
+  .weui-toast {
+    top: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: -1.2rem;
+    border-radius: .16rem;
+    .weui-icon_toast.weui-loading {
+      width: .76rem;
+      height: .76rem;
+      margin-top: .6rem;
+    }
+    .weui-toast__content {
+      font-size: .28rem;
+      margin: .1rem 0 0;
+      line-height: 1.5;
+    }
+  }
+}
+.vux-toast {
+  &:extend(.pr);
+  z-index: 1000;
+  font-size: .4rem;
+  .weui-toast.vux-toast-middle {
+    border-radius: .16rem;
+    .weui-icon_toast {
+      margin-top: .6rem;
+      &:before {
+        font-size: 1.1rem;
+      }
+    }
+    .weui-toast__content {
+      padding: 0 .2rem;
+      font-size: .28rem;
+      line-height: 1.5;
+      margin: .2rem 0 .2rem;
+    }
+  }
+}

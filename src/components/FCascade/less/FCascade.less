@@ -1,0 +1,59 @@
+.FCascade {
+  .navs {
+    line-height: .88rem;
+    border-bottom: 1px solid #ddd;
+    li {
+      &:extend(.fl);
+      padding: 0 .24rem;
+      &.checked {
+        color: #1296db;
+        border-bottom: 1px solid #1296db;
+      }
+    }
+  }
+  .options {
+    &:extend(.pr);
+    height: 5.6rem;
+    line-height: 1.5;
+    padding-left: .24rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    li {
+      padding: .19rem .96rem .19rem 0;
+    }
+    li.checked {
+      &:extend(.pr);
+      color: #1296db;
+      &:after {
+        content: '\200B';
+        &:extend(.pa);
+        top: 50%;
+        right: .24rem;
+        width: .48rem;
+        height: .48rem;
+        margin: -0.24rem 0 0 0;
+        background: transparent url(../image/checked_48x48.png) no-repeat 0 0;
+        background-size: 100% auto;
+      }
+    }
+  }
+  .loading {
+    &:extend(.pa);
+    top: .88rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .5);
+    &:after {
+      &:extend(.pa);
+      content: '\200B';
+      top: 50%;
+      left: 50%;
+      width: .64rem;
+      height: .64rem;
+      margin: -0.32rem 0 0 -0.32rem;
+      background: transparent url('../image/loading_64x64.gif') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+  }
+}

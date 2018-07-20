@@ -1,0 +1,28 @@
+.FHeader {
+  &:extend(.pa);
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #06c1ae;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .36rem;
+  color: #fff;
+  .go-back {
+    &:extend(.pa);
+    left: .24rem;
+    top: .3rem;
+    width: .4rem;
+    height: .4rem;
+    text-align: center;
+    &:after {
+      &:extend(.dib);
+      vertical-align: top;
+      content: '\200B';
+      width: .22rem;
+      height: 100%;
+      background: transparent url('../image/go_back_22x40.png') no-repeat 0 0;
+      background-size: 100% auto;
+    }
+  }
+}
